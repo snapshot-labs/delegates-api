@@ -1,0 +1,31 @@
+{
+  "network_node_url": "https://mainnet.infura.io/v3/c82b1cf516984b599108487a1b6481c4",
+  "optimistic_indexing": true,
+  "decimal_types": {
+    "BigIntVP": {
+      "p": 80,
+      "d": 0
+    },
+    "BigDecimalVP": {
+      "p": 80,
+      "d": 20
+    }
+  },
+  "sources": [
+    {
+      "contract": "0x610dbd98a28ebba525e9926b6aaf88f9159edbfd",
+      "start": 19952803,
+      "abi": "Token",
+      "events": [
+        {
+          "name": "DelegateChanged(indexed address,indexed address,indexed address)",
+          "fn": "handleDelegateChanged"
+        },
+        {
+          "name": "DelegateVotesChanged(indexed address,uint256,uint256)",
+          "fn": "handleDelegateVotesChanged"
+        }
+      ]
+    }
+  ]
+}
