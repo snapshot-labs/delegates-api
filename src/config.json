@@ -107,6 +107,33 @@
           "fn": "handleDelegateVotesChanged"
         }
       ]
+    },
+    {
+      "name": "GeneralPurposeFactory",
+      "contract": "0x0f77c58bb8a75ed393123f9047e1787db637b251",
+      "start": 20333097,
+      "abi": "GeneralPurposeFactory",
+      "events": [
+        {
+          "name": "ContractDeployed(address,address)",
+          "fn": "handleContractDeployed"
+        }
+      ]
     }
-  ]
+  ],
+  "templates": {
+    "GenericERC20Votes": {
+      "abi": "Token",
+      "events": [
+        {
+          "name": "DelegateChanged(address,address,address)",
+          "fn": "handleDelegateChanged"
+        },
+        {
+          "name": "DelegateVotesChanged(address,uint256,uint256)",
+          "fn": "handleDelegateVotesChanged"
+        }
+      ]
+    }
+  }
 }

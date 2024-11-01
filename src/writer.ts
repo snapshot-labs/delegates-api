@@ -3,6 +3,8 @@ import { formatUnits } from '@ethersproject/units';
 import { Delegate, Governance } from '../.checkpoint/models';
 import { BIGINT_ZERO, DECIMALS, getGovernance, getDelegate } from './utils';
 
+const GENERIC_ERC20_VOTES_IMPLEM = '0x75DB1EEE7b03A0C9BcAD50Cb381B068c209c81ef'; // Address should be the same on all networks
+
 export const handleDelegateChanged: evm.Writer = async ({ event, source }) => {
   if (!event) return;
 
@@ -40,4 +42,17 @@ export const handleDelegateVotesChanged: evm.Writer = async ({ event, source }) 
   governance.delegatedVotes = formatUnits(governance.delegatedVotesRaw, DECIMALS);
 
   await governance.save();
+};
+
+export const handleContractDeployed: evm.Writer = async ({ blockNumber, event, instance }) => {
+  if (!event) return;
+
+  if (event.args.implementation === GENERIC_ERC20_VOTES_IMPLEM) {
+    await instance.executeTemplate('GenericERC20Votes', {
+      contract: event.args.contractAddress,
+      start: blockNumber
+    });
+  } else {
+    console.log(`Unknown implementation: ${event.args.implementation}`);
+  }
 };
