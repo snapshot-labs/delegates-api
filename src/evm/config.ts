@@ -9,6 +9,11 @@ type Source = {
   start: number;
 };
 
+const NETWORK_NODE_URLS: Record<NetworkID, string> = {
+  eth: 'https://rpc.snapshot.org/1',
+  arb1: 'https://rpc.snapshot.org/42161'
+};
+
 const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
   eth: [
     {
@@ -37,7 +42,13 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
       start: 19021394
     }
   ],
-  arb1: []
+  arb1: [
+    {
+      name: 'ARB',
+      contract: '0x912CE59144191C1204E64559FE8253a0e49E6548',
+      start: 70398215
+    }
+  ]
 };
 
 export default function createConfig(network: NetworkID) {
@@ -57,7 +68,7 @@ export default function createConfig(network: NetworkID) {
   }));
 
   return {
-    network_node_url: 'https://mainnet.infura.io/v3/c82b1cf516984b599108487a1b6481c4',
+    network_node_url: NETWORK_NODE_URLS[network],
     sources: [
       ...tokenSources,
       {
