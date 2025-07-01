@@ -33,12 +33,12 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
     },
     {
       name: 'ENS',
-      contract: '0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72',
+      contract: '0xc18360217d8f7ab5e7c516566761ea12ce7f9d72',
       start: 13533418
     },
     {
       name: 'SHU',
-      contract: '0xe485E2f1bab389C08721B291f6b59780feC83Fd7',
+      contract: '0xe485e2f1bab389c08721b291f6b59780fec83fd7',
       start: 19021394
     },
     {
@@ -50,7 +50,7 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
   arb1: [
     {
       name: 'ARB',
-      contract: '0x912CE59144191C1204E64559FE8253a0e49E6548',
+      contract: '0x912ce59144191c1204e64559fe8253a0e49e6548',
       start: 70398215
     }
   ]
