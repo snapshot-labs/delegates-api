@@ -1,7 +1,7 @@
 import Token from './abis/Token.json';
 import GeneralPurposeFactory from './abis/GeneralPurposeFactory.json';
 
-type NetworkID = 'eth' | 'arb1';
+export type NetworkID = 'eth' | 'arb1';
 
 type Source = {
   name: string;

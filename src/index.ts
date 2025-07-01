@@ -7,6 +7,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { addEvmIndexers } from './evm';
 import overridesConfig from './overrides.json';
+import { addStarknetIndexers } from './starknet';
 
 const dir = __dirname.endsWith('dist/src') ? '../' : '';
 const schemaFile = path.join(__dirname, `${dir}../src/schema.gql`);
@@ -30,6 +31,7 @@ async function run() {
   });
 
   addEvmIndexers(checkpoint);
+  addStarknetIndexers(checkpoint);
 
   const server = new ApolloServer({
     schema: checkpoint.getSchema(),
