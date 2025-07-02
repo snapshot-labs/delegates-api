@@ -62,7 +62,7 @@ async function run() {
   await checkpoint.reset();
   console.log('Checkpoint ready');
 
-  await checkpoint.start();
+  // await checkpoint.start();
 }
 
 run();
