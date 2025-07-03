@@ -57,7 +57,8 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
 };
 
 export default function createConfig(network: NetworkID) {
-  const tokenSources = TOKEN_SOURCES[network].map(source => ({
+  const abis = { Token };
+  const sources = TOKEN_SOURCES[network].map(source => ({
     ...source,
     abi: 'Token',
     events: [
@@ -72,23 +73,25 @@ export default function createConfig(network: NetworkID) {
     ]
   }));
 
+  if (network === 'eth') {
+    abis['GeneralPurposeFactory'] = GeneralPurposeFactory;
+    sources.push({
+      name: 'GeneralPurposeFactory',
+      contract: '0x0f77c58bb8a75ed393123f9047e1787db637b251',
+      start: 20333097,
+      abi: 'GeneralPurposeFactory',
+      events: [
+        {
+          name: 'ContractDeployed(address,address)',
+          fn: 'handleContractDeployed'
+        }
+      ]
+    });
+  }
+
   return {
     network_node_url: NETWORK_NODE_URLS[network],
-    sources: [
-      ...tokenSources,
-      {
-        name: 'GeneralPurposeFactory',
-        contract: '0x0f77c58bb8a75ed393123f9047e1787db637b251',
-        start: 20333097,
-        abi: 'GeneralPurposeFactory',
-        events: [
-          {
-            name: 'ContractDeployed(address,address)',
-            fn: 'handleContractDeployed'
-          }
-        ]
-      }
-    ],
+    sources,
     templates: {
       GenericERC20Votes: {
         abi: 'Token',
@@ -104,6 +107,6 @@ export default function createConfig(network: NetworkID) {
         ]
       }
     },
-    abis: { Token, GeneralPurposeFactory }
+    abis
   };
 }
