@@ -26,8 +26,8 @@ export default function createWriters(indexerName: NetworkID) {
     if (!event) return;
 
     const governanceId = source?.contract || '';
-    const governance = await getGovernance(indexerName, governanceId);
     const delegate = await getDelegate(indexerName, event.args.delegate, governanceId);
+    const governance = await getGovernance(indexerName, governanceId);
 
     delegate.delegatedVotesRaw = BigInt(event.args.newBalance).toString();
     delegate.delegatedVotes = formatUnits(event.args.newBalance, DECIMALS);
