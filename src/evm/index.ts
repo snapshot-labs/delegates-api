@@ -7,5 +7,5 @@ const arb1Indexer = new evm.EvmIndexer(createWriters('arb1'));
 
 export function addEvmIndexers(checkpoint: Checkpoint) {
   checkpoint.addIndexer('eth', createConfig('eth'), ethIndexer);
-  checkpoint.addIndexer('arb1', createConfig('arb1'), arb1Indexer);
+  // checkpoint.addIndexer('arb1', createConfig('arb1'), arb1Indexer);
 }
