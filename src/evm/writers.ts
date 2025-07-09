@@ -31,7 +31,7 @@ export default function createWriters(indexerName: NetworkID) {
 
     delegate.delegatedVotesRaw = BigInt(event.args.newBalance).toString();
     delegate.delegatedVotes = formatUnits(event.args.newBalance, DECIMALS);
-    delegate.save();
+    await delegate.save();
 
     if (event.args.previousBalance == BIGINT_ZERO && event.args.newBalance > BIGINT_ZERO)
       governance.currentDelegates += 1;

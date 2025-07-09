@@ -24,16 +24,16 @@ export default function createWriters(indexerName: string) {
     if (!event) return;
 
     const governanceId = source?.contract || '';
-    const governance = await getGovernance(indexerName, governanceId);
     const delegate = await getDelegate(
       indexerName,
       validateAndParseAddress(event.delegate),
       governanceId
     );
+    const governance = await getGovernance(indexerName, governanceId);
 
     delegate.delegatedVotesRaw = BigInt(event.new_votes).toString();
     delegate.delegatedVotes = formatUnits(event.new_votes, DECIMALS);
-    delegate.save();
+    await delegate.save();
 
     if (event.previous_votes == BIGINT_ZERO && event.new_votes > BIGINT_ZERO)
       governance.currentDelegates += 1;

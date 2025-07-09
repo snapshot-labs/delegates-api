@@ -26,6 +26,7 @@ async function run() {
   const checkpoint = new Checkpoint(schema, {
     logLevel: LogLevel.Info,
     resetOnConfigChange: true,
+    skipBlockFetching: true,
     prettifyLogs: process.env.NODE_ENV !== 'production',
     overridesConfig
   });
@@ -62,7 +63,7 @@ async function run() {
   await checkpoint.reset();
   console.log('Checkpoint ready');
 
-  // await checkpoint.start();
+  await checkpoint.start();
 }
 
 run();
