@@ -1,5 +1,5 @@
 diff --git a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
-index 147d7ee..063acdf 100644
+index 147d7ee..f0035d6 100644
 --- a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
 +++ b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
 @@ -8,10 +8,11 @@ const helpers_1 = require("./utils/helpers");
@@ -12,7 +12,7 @@ index 147d7ee..063acdf 100644
  const BLOCK_PRELOAD_STEP = 100;
 -const BLOCK_PRELOAD_TARGET = 10;
 +const BLOCK_PRELOAD_TARGET = 10000;
-+console.log('Block preload step:', BLOCK_PRELOAD_STEP);
++console.log('Block preload target:', BLOCK_PRELOAD_TARGET);
  const BLOCK_PRELOAD_OFFSET = 50;
  const CHECK_LATEST_BLOCK_INTERVAL = 50;
  const DEFAULT_FETCH_INTERVAL = 2000;
