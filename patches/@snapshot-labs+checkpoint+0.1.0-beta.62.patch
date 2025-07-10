@@ -1,0 +1,13 @@
+diff --git a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
+index 147d7ee..126fe45 100644
+--- a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
++++ b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
+@@ -11,7 +11,7 @@ const SCHEMA_VERSION = 1;
+ const BLOCK_PRELOAD_START_RANGE = 1000;
+ const BLOCK_RELOAD_MIN_RANGE = 10;
+ const BLOCK_PRELOAD_STEP = 100;
+-const BLOCK_PRELOAD_TARGET = 10;
++const BLOCK_PRELOAD_TARGET = 5000;
+ const BLOCK_PRELOAD_OFFSET = 50;
+ const CHECK_LATEST_BLOCK_INTERVAL = 50;
+ const DEFAULT_FETCH_INTERVAL = 2000;
