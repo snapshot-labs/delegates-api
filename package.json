@@ -8,7 +8,8 @@
     "prebuild": "yarn codegen",
     "build": "tsc",
     "dev": "nodemon src/index.ts",
-    "start": "node dist/src/index.js"
+    "start": "node dist/src/index.js",
+    "postinstall": "patch-package"
   },
   "eslintConfig": {
     "extends": "@snapshot-labs"
@@ -26,6 +27,8 @@
     "@types/node": "^18.11.6",
     "dotenv": "^16.0.1",
     "nodemon": "^2.0.19",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "starknet": "^5.19.3",
     "ts-node": "^10.8.1",
     "typescript": "^4.9.3"
