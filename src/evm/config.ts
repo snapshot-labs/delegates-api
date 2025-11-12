@@ -45,6 +45,11 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
       name: 'COMP',
       contract: '0xc00e94cb662c3520282e6f5717214004a7f26888',
       start: 9601359
+    },
+    {
+      name: 'stRESOLV',
+      contract: '0xfe4bce4b3949c35fb17691d8b03c3cadbe2e5e23',
+      start: 22565398
     }
   ],
   arb1: [
