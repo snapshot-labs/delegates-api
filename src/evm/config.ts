@@ -26,26 +26,26 @@ const TOKEN_SOURCES: Record<NetworkID, Source[]> = {
       contract: '0x610dbd98a28ebba525e9926b6aaf88f9159edbfd',
       start: 19952803
     },
-    {
-      name: 'UNI',
-      contract: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
-      start: 10861674
-    },
-    {
-      name: 'ENS',
-      contract: '0xc18360217d8f7ab5e7c516566761ea12ce7f9d72',
-      start: 13533418
-    },
+    // {
+    //   name: 'UNI',
+    //   contract: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
+    //   start: 10861674
+    // },
+    // {
+    //   name: 'ENS',
+    //   contract: '0xc18360217d8f7ab5e7c516566761ea12ce7f9d72',
+    //   start: 13533418
+    // },
     {
       name: 'SHU',
       contract: '0xe485e2f1bab389c08721b291f6b59780fec83fd7',
       start: 19021394
     },
-    {
-      name: 'COMP',
-      contract: '0xc00e94cb662c3520282e6f5717214004a7f26888',
-      start: 9601359
-    },
+    // {
+    //   name: 'COMP',
+    //   contract: '0xc00e94cb662c3520282e6f5717214004a7f26888',
+    //   start: 9601359
+    // },
     {
       name: 'stRESOLV',
       contract: '0xfe4bce4b3949c35fb17691d8b03c3cadbe2e5e23',
