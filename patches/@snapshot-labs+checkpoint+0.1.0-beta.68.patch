@@ -1,10 +1,10 @@
 diff --git a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
-index 147d7ee..f0035d6 100644
+index c4c318a..7682be6 100644
 --- a/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
 +++ b/node_modules/@snapshot-labs/checkpoint/dist/src/container.js
-@@ -8,10 +8,11 @@ const helpers_1 = require("./utils/helpers");
- const register_1 = require("./register");
+@@ -8,10 +8,11 @@ const checkpoint_1 = require("./utils/checkpoint");
  const database_1 = require("./utils/database");
+ const helpers_1 = require("./utils/helpers");
  const SCHEMA_VERSION = 1;
 -const BLOCK_PRELOAD_START_RANGE = 1000;
 +const BLOCK_PRELOAD_START_RANGE = 5000;
