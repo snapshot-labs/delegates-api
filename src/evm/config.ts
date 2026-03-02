@@ -1,5 +1,5 @@
-import Token from './abis/Token.json';
-import GeneralPurposeFactory from './abis/GeneralPurposeFactory.json';
+import Token from './abis/Token';
+import GeneralPurposeFactory from './abis/GeneralPurposeFactory';
 
 export type NetworkID = 'eth' | 'arb1';
 
