@@ -1,5 +1,5 @@
 import { starknet } from '@snapshot-labs/checkpoint';
-import { formatUnits } from '@ethersproject/units';
+import { formatUnits } from 'viem';
 import { BIGINT_ZERO, DECIMALS, getGovernance, getDelegate } from '../utils';
 import { validateAndParseAddress } from 'starknet';
 
@@ -32,7 +32,7 @@ export default function createWriters(indexerName: string) {
     const governance = await getGovernance(indexerName, governanceId);
 
     delegate.delegatedVotesRaw = BigInt(event.new_votes).toString();
-    delegate.delegatedVotes = formatUnits(event.new_votes, DECIMALS);
+    delegate.delegatedVotes = formatUnits(BigInt(event.new_votes), DECIMALS);
     await delegate.save();
 
     if (event.previous_votes == BIGINT_ZERO && event.new_votes > BIGINT_ZERO)
@@ -42,7 +42,7 @@ export default function createWriters(indexerName: string) {
 
     const votesDiff = BigInt(event.new_votes) - BigInt(event.previous_votes);
     governance.delegatedVotesRaw = (BigInt(governance.delegatedVotesRaw) + votesDiff).toString();
-    governance.delegatedVotes = formatUnits(governance.delegatedVotesRaw, DECIMALS);
+    governance.delegatedVotes = formatUnits(BigInt(governance.delegatedVotesRaw), DECIMALS);
 
     await governance.save();
   };

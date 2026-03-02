@@ -1,5 +1,5 @@
 import { evm } from '@snapshot-labs/checkpoint';
-import { formatUnits } from '@ethersproject/units';
+import { formatUnits } from 'viem';
 import { BIGINT_ZERO, DECIMALS, getGovernance, getDelegate } from '../utils';
 import { NetworkID } from './config';
 import TokenAbi from './abis/Token';
@@ -38,7 +38,7 @@ export default function createWriters(indexerName: NetworkID) {
     const governance = await getGovernance(indexerName, governanceId);
 
     delegate.delegatedVotesRaw = event.args.newBalance.toString();
-    delegate.delegatedVotes = formatUnits(event.args.newBalance.toString(), DECIMALS);
+    delegate.delegatedVotes = formatUnits(event.args.newBalance, DECIMALS);
     await delegate.save();
 
     if (event.args.previousBalance === BIGINT_ZERO && event.args.newBalance > BIGINT_ZERO)
@@ -48,7 +48,7 @@ export default function createWriters(indexerName: NetworkID) {
 
     const votesDiff = event.args.newBalance - event.args.previousBalance;
     governance.delegatedVotesRaw = (BigInt(governance.delegatedVotesRaw) + votesDiff).toString();
-    governance.delegatedVotes = formatUnits(governance.delegatedVotesRaw, DECIMALS);
+    governance.delegatedVotes = formatUnits(BigInt(governance.delegatedVotesRaw), DECIMALS);
 
     await governance.save();
   };
