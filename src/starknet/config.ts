@@ -48,6 +48,7 @@ export default function createConfig(network: NetworkID) {
 
   return {
     network_node_url: NETWORK_NODE_URLS[network],
+    state_retention_blocks: 100,
     sources,
     abis: { Token, Token2 }
   };
